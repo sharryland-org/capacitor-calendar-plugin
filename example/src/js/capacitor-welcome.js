@@ -116,7 +116,9 @@ window.customElements.define(
         .querySelector('#add-to-calendar')
         .addEventListener('click', async () => {
           try {
-            CapacitorCalendar.saveEventToCalendar({ eventTitle: 'GG' });
+            const startDate = new Date(2023, 11, 25, 12, 0, 0, 0).getTime();
+            const endDate = new Date(2023, 11, 25, 15, 0, 0, 0).getTime();
+            CapacitorCalendar.saveEventToCalendar({ eventTitle: 'GG', startDate: startDate, endDate: endDate, location: 'Padova (PD)' });
           } catch (e) {
             console.warn('User cancelled', e);
           }

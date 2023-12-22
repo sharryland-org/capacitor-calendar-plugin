@@ -6,7 +6,7 @@ import EventKitUI
 
 @objc public class CapacitorCalendar: NSObject {
 
-    func saveEventToCalendar(_ eventStore: EKEventStore, _ eventTitle: String, _ startDate: Date, _ endDate: Date, _ isAllDay: Bool, _ location: Location?) -> EKEvent? {
+    func saveEventToCalendar(_ eventStore: EKEventStore, _ eventTitle: String, _ startDate: Double, _ endDate: Double, _ isAllDay: Bool, _ location: String?) -> EKEvent? {
 
         var event: EKEvent?
         // Check for permission to access the calendar
@@ -43,22 +43,14 @@ import EventKitUI
         return event
     }
 
-    func createEvent(_ eventStore: EKEventStore, _ eventTitle: String, _ startDate: Date, _ endDate: Date, _ isAllDay: Bool, _ location: Location?) -> EKEvent {
+    func createEvent(_ eventStore: EKEventStore, _ eventTitle: String, _ startDate: Double, _ endDate: Double, _ isAllDay: Bool, _ location: String?) -> EKEvent {
         // Create an event
         let event = EKEvent(eventStore: eventStore)
-        var structuredLocation: EKStructuredLocation?
-        if location != nil {
-            structuredLocation = EKStructuredLocation.init(title: location?.title ?? "")
-            if location?.latitude != nil && location?.longitude != nil {
-                let geoLocation = CLLocation(latitude: location?.latitude ?? 0, longitude: location?.longitude ?? 0)
-                structuredLocation?.geoLocation = geoLocation
-            }
-        }
         event.title = eventTitle
-        event.startDate = startDate
-        event.endDate = endDate
+        event.startDate = Date(milliseconds: startDate)
+        event.endDate = Date(milliseconds: endDate)
         event.isAllDay = isAllDay
-        event.structuredLocation = structuredLocation
+        event.structuredLocation = EKStructuredLocation.init(title: location ?? "")
         return event
     }
 }

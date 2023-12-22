@@ -1,14 +1,10 @@
 export interface CapacitorCalendarPlugin {
   saveEventToCalendar(options: {
     eventTitle: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: number;
+    endDate?: number;
+    timeZoneId?: string;
     isAllDay?: boolean;
-    location?: Location;
+    location?: string;
   }): Promise<void>;
-}
-export interface Location{
-  title: string;
-  latitude?: number;
-  longitude?: number;
 }

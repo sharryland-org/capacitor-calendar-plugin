@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { CapacitorCalendarPlugin, Location } from './definitions';
+import type { CapacitorCalendarPlugin } from './definitions';
 
 export class CapacitorCalendarWeb
   extends WebPlugin
@@ -8,10 +8,11 @@ export class CapacitorCalendarWeb
 {
   async saveEventToCalendar(options: {
     eventTitle: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: number;
+    endDate?: number;
+    timeZoneId?: string;
     isAllDay?: boolean;
-    location?: Location;
+    location?: string;
   }): Promise<void> {
     console.log('saveEventToCalendar', options);
     return;
