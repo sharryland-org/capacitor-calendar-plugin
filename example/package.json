@@ -13,12 +13,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@capacitor/core": "latest",
+    "@capacitor/android": "^5.6.0",
     "@capacitor/camera": "latest",
+    "@capacitor/core": "latest",
+    "@capacitor/ios": "^5.6.0",
     "@capacitor/splash-screen": "latest",
-    "capacitor-calendar-plugin": "file:..",
-    "@capacitor/ios": "^5.0.0",
-    "@capacitor/android": "^5.0.0"
+    "capacitor-calendar-plugin": "file:.."
   },
   "devDependencies": {
     "@capacitor/cli": "latest",
