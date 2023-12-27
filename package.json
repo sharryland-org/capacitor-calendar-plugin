@@ -1,6 +1,6 @@
 {
   "name": "capacitor-calendar-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "add events to calendar",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
