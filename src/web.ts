@@ -25,9 +25,21 @@ UID:${Math.random().toString()}
 SEQUENCE:0
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
-DTSTAMP:${dtstamp.substring(0, dtstamp.length - 4).replaceAll('.', '').replaceAll(':', '').replaceAll('-', '')}
-DTSTART:${dtstart.substring(0, dtstart.length - 4).replaceAll('.', '').replaceAll(':', '').replaceAll('-', '')}
-DTEND:${dtend.substring(0, dtend.length - 4).replaceAll('.', '').replaceAll(':', '').replaceAll('-', '')}
+DTSTAMP:${dtstamp
+      .substring(0, dtstamp.length - 4)
+      .replaceAll('.', '')
+      .replaceAll(':', '')
+      .replaceAll('-', '')}
+DTSTART:${dtstart
+      .substring(0, dtstart.length - 4)
+      .replaceAll('.', '')
+      .replaceAll(':', '')
+      .replaceAll('-', '')}
+DTEND:${dtend
+      .substring(0, dtend.length - 4)
+      .replaceAll('.', '')
+      .replaceAll(':', '')
+      .replaceAll('-', '')}
 LOCATION:${location}
 DESCRIPTION:${this.stripTagsAndFormatters(eventDescription)}
 X-ALT-DESC:${eventDescription}
