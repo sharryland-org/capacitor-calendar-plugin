@@ -23,12 +23,12 @@ npx cap sync
 ### saveEventToCalendar(...)
 
 ```typescript
-saveEventToCalendar(options: { eventTitle: string; startDate?: number; endDate?: number; timeZoneId?: string; isAllDay?: boolean; location?: string; }) => Promise<void>
+saveEventToCalendar(options: { eventTitle: string; eventDescription?: string; startDate?: number; endDate?: number; location?: string; }) => Promise<void>
 ```
 
-| Param         | Type                                                                                                                                   |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **`options`** | <code>{ eventTitle: string; startDate?: number; endDate?: number; timeZoneId?: string; isAllDay?: boolean; location?: string; }</code> |
+| Param         | Type                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **`options`** | <code>{ eventTitle: string; eventDescription?: string; startDate?: number; endDate?: number; location?: string; }</code> |
 
 --------------------
 
