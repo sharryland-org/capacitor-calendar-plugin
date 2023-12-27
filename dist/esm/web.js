@@ -3,8 +3,7 @@ export class CapacitorCalendarWeb extends WebPlugin {
     async saveEventToCalendar(options) {
         const { eventTitle, eventDescription, startDate, endDate, location } = options;
         const dtstart = new Date(startDate || new Date().getTime());
-        const dtend = new Date(endDate ||
-            new Date(new Date().setHours(new Date().getHours() + 1)).getTime());
+        const dtend = new Date(endDate || new Date(new Date().setHours(new Date().getHours() + 1)).getTime());
         const calendar = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//ZContent.net//Zap Calendar 1.0//EN
@@ -16,8 +15,8 @@ UID:${Math.random().toString()}
 SEQUENCE:0
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
-DTSTART:${dtstart.toISOString()}
-DTEND:${dtend.toISOString()}
+DTSTART:${dtstart.toISOString().replaceAll('.', '').replaceAll(':', '').replaceAll('-', '')}
+DTEND:${dtend.toISOString().replaceAll('.', '').replaceAll(':', '').replaceAll('-', '')}
 LOCATION:${location}
 DESCRIPTION:${this.stripTagsAndFormatters(eventDescription)}
 X-ALT-DESC:${eventDescription}
