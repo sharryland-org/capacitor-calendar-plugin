@@ -14,52 +14,51 @@ public class CapacitorCalendarPlugin: CAPPlugin {
 
     @objc func saveEventToCalendar(_ call: CAPPluginCall) {
         let eventStore = EKEventStore()
-        let permission = checkPermissions(eventStore)
-        if permission {
-            let eventTitle = call.getString("eventTitle") ?? ""
-            let eventDescription = call.getString("eventDescription") ?? ""
-            let startDate = call.getDouble("startDate") ?? Date().millisecondsSince1970
-            let endDate = call.getDouble("endDate") ?? Date().addingTimeInterval(3600).millisecondsSince1970
-            let location = call.getString("location")
-            let event = implementation.saveEventToCalendar(eventStore, eventTitle, eventDescription, startDate, endDate, location)
-            DispatchQueue.main.async {
-                let controller = EKEventEditViewController()
-                let viewController = self.bridge?.viewController
-                controller.event = event
-                controller.eventStore = eventStore
-                controller.editViewDelegate = viewController
-                viewController!.present(controller, animated: true, completion: nil)
+        checkPermissions(eventStore) {(permission) -> Void in
+            if permission {
+                let eventTitle = call.getString("eventTitle") ?? ""
+                let eventDescription = call.getString("eventDescription") ?? ""
+                let startDate = call.getDouble("startDate") ?? Date().millisecondsSince1970
+                let endDate = call.getDouble("endDate") ?? Date().addingTimeInterval(3600).millisecondsSince1970
+                let location = call.getString("location")
+                let event = self.implementation.saveEventToCalendar(eventStore, eventTitle, eventDescription, startDate, endDate, location)
+                DispatchQueue.main.async {
+                    let controller = EKEventEditViewController()
+                    let viewController = self.bridge?.viewController
+                    controller.event = event
+                    controller.eventStore = eventStore
+                    controller.editViewDelegate = viewController
+                    viewController!.present(controller, animated: true, completion: nil)
+                }
+                call.resolve()
+            } else {
+                call.reject("")
             }
-            call.resolve()
-        } else {
-            call.reject("")
         }
     }
-    private func checkPermissions(_ eventStore: EKEventStore) -> Bool {
-        var permission = false
+    private func checkPermissions(_ eventStore: EKEventStore, completion: @escaping (Bool) -> Void) {
         switch EKEventStore.authorizationStatus(for: .event) {
         case .authorized:
             // The app has permission to access the calendar
-            permission = true
+            completion(true)
         case .denied:
             // The app doesn't have permission, prompt the user to grant permission
-            permission = false
+            completion(false)
         case .notDetermined:
             // Request permission from the user
             if #available(iOS 17.0, *) {
                 eventStore.requestWriteOnlyAccessToEvents(completion: {[weak self] (granted: Bool, _: Error?) -> Void in
-                    permission = granted
+                    completion(granted)
                 })
             } else {
                 // Fallback on earlier versions
                 eventStore.requestAccess(to: .event, completion: {[weak self] (granted: Bool, _: Error?) -> Void in
-                    permission = granted
+                    completion(granted)
                 })
             }
         default:
-            permission = false
+            completion(false)
         }
-        return permission
     }
 
 }

@@ -12,7 +12,7 @@ public class CapacitorCalendar {
         intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startDate.getTimeInMillis());
         intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endDate.getTimeInMillis());
         intent.putExtra(CalendarContract.Events.TITLE, eventTitle);
-        intent.putExtra(CalendarContract.Events.TITLE, eventDescription);
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, eventDescription);
         intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location);
         return intent;
     }
