@@ -1,0 +1,31 @@
+{
+  "api": {
+    "name": "CapacitorCalendarPlugin",
+    "slug": "capacitorcalendarplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "saveEventToCalendar",
+        "signature": "(options: { eventTitle: string; eventDescription?: string; startDate?: number; endDate?: number; location?: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ eventTitle: string; eventDescription?: string | undefined; startDate?: number | undefined; endDate?: number | undefined; location?: string | undefined; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "saveeventtocalendar"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}

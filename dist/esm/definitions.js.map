@@ -1,0 +1,1 @@
+{"version":3,"file":"definitions.js","sourceRoot":"","sources":["../../src/definitions.ts"],"names":[],"mappings":"","sourcesContent":["export interface CapacitorCalendarPlugin {\n  saveEventToCalendar(options: {\n    eventTitle: string;\n    eventDescription?: string;\n    startDate?: number;\n    endDate?: number;\n    location?: string;\n  }): Promise<void>;\n}\n"]}
