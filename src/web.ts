@@ -31,8 +31,16 @@ UID:${Math.random().toString()}
 SEQUENCE:0
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
-DTSTART:${dtstart.toISOString()}
-DTEND:${dtend.toISOString()}
+DTSTART:${dtstart
+      .toISOString()
+      .replaceAll('.', '')
+      .replaceAll(':', '')
+      .replaceAll('-', '')}
+DTEND:${dtend
+      .toISOString()
+      .replaceAll('.', '')
+      .replaceAll(':', '')
+      .replaceAll('-', '')}
 LOCATION:${location}
 DESCRIPTION:${this.stripTagsAndFormatters(eventDescription)}
 X-ALT-DESC:${eventDescription}
