@@ -21,13 +21,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Version Increment
-      uses: reecetech/version-increment@2023.10.2
-      id: version
-      with:
-        scheme: semver
-        increment: patch
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -35,6 +28,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - run: npm run fmt
     - run: npm run build
     
     - uses: stefanzweifel/git-auto-commit-action@v5
