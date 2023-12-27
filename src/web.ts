@@ -31,20 +31,8 @@ UID:${Math.random().toString()}
 SEQUENCE:0
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
-DTSTART:${dtstart.getFullYear().toPrecision(4)}${(
-      dtstart.getMonth() + 1
-    ).toPrecision(2)}${dtstart.getDate().toPrecision(2)}T${dtstart
-      .getHours()
-      .toPrecision(2)}${dtstart.getMinutes().toPrecision(2)}${dtstart
-      .getMilliseconds()
-      .toPrecision(3)}
-DTEND:${dtend.getFullYear().toPrecision(4)}${(dtend.getMonth() + 1).toPrecision(
-      2,
-    )}${dtend.getDate().toPrecision(2)}T${dtend
-      .getHours()
-      .toPrecision(2)}${dtend.getMinutes().toPrecision(2)}${dtend
-      .getMilliseconds()
-      .toPrecision(3)}
+DTSTART:${dtstart.toISOString()}
+DTEND:${dtend.toISOString()}
 LOCATION:${location}
 DESCRIPTION:${this.stripTagsAndFormatters(eventDescription)}
 X-ALT-DESC:${eventDescription}
