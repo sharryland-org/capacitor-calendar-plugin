@@ -38,7 +38,7 @@ public class CapacitorCalendarPlugin: CAPPlugin {
     }
     private func checkPermissions(_ eventStore: EKEventStore, completion: @escaping (Bool) -> Void) {
         switch EKEventStore.authorizationStatus(for: .event) {
-        case .authorized:
+        case .authorized, .writeOnly, .fullAccess:
             // The app has permission to access the calendar
             completion(true)
         case .denied:
