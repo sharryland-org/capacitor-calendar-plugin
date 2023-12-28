@@ -5,7 +5,7 @@ add events to calendar
 ## Install
 
 ```bash
-npm install capacitor-calendar-plugin
+npm install @sharryland/capacitor-calendar-plugin
 npx cap sync
 ```
 
