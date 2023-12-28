@@ -1,4 +1,4 @@
-export interface CapacitorCalendarPlugin {
+export interface SharrylandCapacitorCalendarPlugin {
   saveEventToCalendar(options: {
     eventTitle: string;
     eventDescription?: string;

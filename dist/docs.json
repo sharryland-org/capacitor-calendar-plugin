@@ -1,7 +1,7 @@
 {
   "api": {
-    "name": "CapacitorCalendarPlugin",
-    "slug": "capacitorcalendarplugin",
+    "name": "SharrylandCapacitorCalendarPlugin",
+    "slug": "sharrylandcapacitorcalendarplugin",
     "docs": "",
     "tags": [],
     "methods": [

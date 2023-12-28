@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
-import type { CapacitorCalendarPlugin } from './definitions';
-export declare class CapacitorCalendarWeb extends WebPlugin implements CapacitorCalendarPlugin {
+import type { SharrylandCapacitorCalendarPlugin } from './definitions';
+export declare class CapacitorCalendarWeb extends WebPlugin implements SharrylandCapacitorCalendarPlugin {
     saveEventToCalendar(options: {
         eventTitle: string;
         eventDescription?: string;

@@ -15,7 +15,7 @@ import java.util.Calendar;
     name = "CapacitorCalendar",
     permissions = { @Permission(alias = "calendar", strings = { Manifest.permission.READ_CALENDAR, Manifest.permission.WRITE_CALENDAR }) }
 )
-public class CapacitorCalendarPlugin extends Plugin {
+public class SharrylandCapacitorCalendarPlugin extends Plugin {
 
     private CapacitorCalendar implementation = new CapacitorCalendar();
 

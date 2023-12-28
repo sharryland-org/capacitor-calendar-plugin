@@ -8,8 +8,8 @@ import EventKitUI
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
  */
-@objc(CapacitorCalendarPlugin)
-public class CapacitorCalendarPlugin: CAPPlugin {
+@objc(SharrylandCapacitorCalendarPlugin)
+public class SharrylandCapacitorCalendarPlugin: CAPPlugin {
     private let implementation = CapacitorCalendar()
 
     @objc func saveEventToCalendar(_ call: CAPPluginCall) {
