@@ -1,4 +1,4 @@
-package com.lucaperuzzo.capacitorcalendarplugin;
+package com.sharryland.capacitorcalendarplugin;
 
 import android.Manifest;
 import android.content.Intent;
