@@ -1,6 +1,6 @@
 {
   "name": "capacitor-calendar-plugin",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "add events to calendar",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luca-peruzzo/capacitor-calendar-plugin.git"
+    "url": "git+https://github.com/sharryland-org/capacitor-calendar-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/luca-peruzzo/capacitor-calendar-plugin/issues"
+    "url": "https://github.com/sharryland-org/capacitor-calendar-plugin/issues"
   },
   "keywords": [
     "capacitor",
